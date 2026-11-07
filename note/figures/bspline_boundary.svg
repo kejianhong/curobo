@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" font-family="Roboto, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-gray2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#646d72"/>
+    </marker>
+    <marker id="arrow-red2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d21419"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="720" height="520" fill="#ffffff"/>
+  <text x="360" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333333">边界条件的隐式满足(式 15–17 与式 9)</text>
+  <text x="360" y="52" text-anchor="middle" font-size="13" fill="#646d72">左:虚控制点把 t=0 锚定到初始状态 (0.3 rad, 0.5 rad/s, 1.0 rad/s²);右:末控制点重复 4 次 → 终端静止。dt_u = 0.2 s</text>
+  <rect x="80.0" y="81" width="220.9" height="319" fill="#ececec"/>
+  <text x="191.6" y="99" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#646d72">t &lt; 0:虚控制点(非优化变量)</text>
+  <line x1="74" y1="400" x2="663" y2="400" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray2)"/>
+  <text x="669" y="404" font-size="13" fill="#646d72">t</text>
+  <line x1="114.9" y1="400" x2="114.9" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="114.9" y="419" text-anchor="middle" font-size="11" fill="#646d72">-0.8</text>
+  <line x1="161.4" y1="400" x2="161.4" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="161.4" y="419" text-anchor="middle" font-size="11" fill="#646d72">-0.6</text>
+  <line x1="207.9" y1="400" x2="207.9" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="207.9" y="419" text-anchor="middle" font-size="11" fill="#646d72">-0.4</text>
+  <line x1="254.4" y1="400" x2="254.4" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="254.4" y="419" text-anchor="middle" font-size="11" fill="#646d72">-0.2</text>
+  <line x1="300.9" y1="400" x2="300.9" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="300.9" y="419" text-anchor="middle" font-size="11" fill="#646d72">0</text>
+  <line x1="347.4" y1="400" x2="347.4" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="347.4" y="419" text-anchor="middle" font-size="11" fill="#646d72">0.2</text>
+  <line x1="393.9" y1="400" x2="393.9" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="393.9" y="419" text-anchor="middle" font-size="11" fill="#646d72">0.4</text>
+  <line x1="440.4" y1="400" x2="440.4" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="440.4" y="419" text-anchor="middle" font-size="11" fill="#646d72">0.6</text>
+  <line x1="486.9" y1="400" x2="486.9" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="486.9" y="419" text-anchor="middle" font-size="11" fill="#646d72">0.8</text>
+  <line x1="533.4" y1="400" x2="533.4" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="533.4" y="419" text-anchor="middle" font-size="11" fill="#646d72">1</text>
+  <line x1="579.9" y1="400" x2="579.9" y2="405" stroke="#646d72" stroke-width="1.1"/>
+  <text x="579.9" y="419" text-anchor="middle" font-size="11" fill="#646d72">1.2</text>
+  <line x1="300.9" y1="81" x2="300.9" y2="400" stroke="#646d72" stroke-width="1.6"/>
+  <text x="300.9" y="436" text-anchor="middle" font-size="12" font-weight="bold" fill="#333333">t = 0(轨迹起点)</text>
+  <path d="M 114.9 359.3 L 161.4 324.5 L 207.9 272.2 L 254.4 202.5 L 300.9 147.3 L 347.4 182.1 L 393.9 256.2 L 440.4 256.2 L 486.9 256.2 L 533.4 256.2" fill="none" stroke="#b0b6b9" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <path d="M 300.9 321.6 L 302.8 319.7 L 304.8 317.9 L 306.7 316.0 L 308.6 314.1 L 310.6 312.1 L 312.5 310.1 L 314.4 308.1 L 316.4 306.1 L 318.3 304.0 L 320.3 301.9 L 322.2 299.8 L 324.1 297.6 L 326.1 295.4 L 328.0 293.2 L 329.9 290.9 L 331.9 288.7 L 333.8 286.3 L 335.8 284.0 L 337.7 281.6 L 339.6 279.2 L 341.6 276.8 L 343.5 274.3 L 345.4 271.8 L 347.4 269.3 L 347.4 269.3 L 349.3 266.7 L 351.3 264.1 L 353.2 261.5 L 355.1 258.9 L 357.1 256.2 L 359.0 253.6 L 360.9 250.9 L 362.9 248.2 L 364.8 245.5 L 366.8 242.7 L 368.7 240.0 L 370.6 237.3 L 372.6 234.5 L 374.5 231.8 L 376.5 229.1 L 378.4 226.3 L 380.3 223.6 L 382.3 220.9 L 384.2 218.2 L 386.1 215.5 L 388.1 212.8 L 390.0 210.1 L 392.0 207.5 L 393.9 204.9 L 393.9 204.9 L 395.8 202.3 L 397.8 199.8 L 399.7 197.2 L 401.6 194.7 L 403.6 192.3 L 405.5 189.9 L 407.5 187.6 L 409.4 185.4 L 411.3 183.2 L 413.3 181.0 L 415.2 179.0 L 417.1 177.1 L 419.1 175.2 L 421.0 173.4 L 423.0 171.8 L 424.9 170.2 L 426.8 168.8 L 428.8 167.5 L 430.7 166.3 L 432.6 165.2 L 434.6 164.2 L 436.5 163.4 L 438.5 162.8 L 440.4 162.3 L 440.4 162.3 L 442.3 161.9 L 444.3 161.8 L 446.2 161.7 L 448.1 161.8 L 450.1 162.1 L 452.0 162.4 L 454.0 162.9 L 455.9 163.6 L 457.8 164.4 L 459.8 165.3 L 461.7 166.3 L 463.6 167.4 L 465.6 168.7 L 467.5 170.0 L 469.5 171.5 L 471.4 173.0 L 473.3 174.7 L 475.3 176.4 L 477.2 178.3 L 479.1 180.2 L 481.1 182.2 L 483.0 184.3 L 485.0 186.4 L 486.9 188.7 L 486.9 188.7 L 488.8 191.0 L 490.8 193.3 L 492.7 195.8 L 494.6 198.2 L 496.6 200.7 L 498.5 203.2 L 500.5 205.8 L 502.4 208.3 L 504.3 210.9 L 506.3 213.4 L 508.2 215.9 L 510.1 218.5 L 512.1 220.9 L 514.0 223.4 L 516.0 225.8 L 517.9 228.1 L 519.8 230.4 L 521.8 232.6 L 523.7 234.7 L 525.6 236.8 L 527.6 238.7 L 529.5 240.5 L 531.5 242.3 L 533.4 243.9 L 533.4 243.9 L 535.3 245.3 L 537.3 246.7 L 539.2 247.9 L 541.1 249.1 L 543.1 250.1 L 545.0 251.0 L 547.0 251.8 L 548.9 252.6 L 550.8 253.2 L 552.8 253.8 L 554.7 254.3 L 556.6 254.7 L 558.6 255.0 L 560.5 255.3 L 562.5 255.6 L 564.4 255.8 L 566.3 255.9 L 568.3 256.0 L 570.2 256.1 L 572.1 256.2 L 574.1 256.2 L 576.0 256.2 L 578.0 256.2 L 579.9 256.2 L 579.9 256.2 L 581.8 256.2 L 583.8 256.2 L 585.7 256.2 L 587.6 256.2 L 589.6 256.2 L 591.5 256.2 L 593.5 256.2 L 595.4 256.2 L 597.3 256.2 L 599.3 256.2 L 601.2 256.2 L 603.1 256.2 L 605.1 256.2 L 607.0 256.2 L 609.0 256.2 L 610.9 256.2 L 612.8 256.2 L 614.8 256.2 L 616.7 256.2 L 618.6 256.2 L 620.6 256.2" fill="none" stroke="#e76125" stroke-width="2.8"/>
+  <line x1="235.8" y1="382.6" x2="379.9" y2="247.5" stroke="#d21419" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrow-red2)"/>
+  <circle cx="300.9" cy="321.6" r="4.6" fill="#d21419"/>
+  <text x="305.5" y="342.6" font-size="12.5" font-weight="bold" fill="#d21419">位置 θ(0) = 0.3 rad</text>
+  <text x="306.7" y="361.6" font-size="12" fill="#d21419">红色虚线 = 起点切线,斜率 = 初速度 0.5 rad/s</text>
+  <text x="306.7" y="379.6" font-size="12" fill="#646d72">曲线在切线上方弯曲 → 初加速度 1.0 rad/s² &gt; 0</text>
+  <circle cx="114.9" cy="359.3" r="4.6" fill="#ffffff" stroke="#e76125" stroke-width="2.4"/>
+  <circle cx="161.4" cy="324.5" r="4.6" fill="#ffffff" stroke="#e76125" stroke-width="2.4"/>
+  <circle cx="207.9" cy="272.2" r="4.6" fill="#ffffff" stroke="#e76125" stroke-width="2.4"/>
+  <circle cx="254.4" cy="202.5" r="4.6" fill="#ffffff" stroke="#e76125" stroke-width="2.4"/>
+  <text x="114.9" y="381.3" text-anchor="middle" font-size="11.5" fill="#646d72">w₀</text>
+  <text x="114.9" y="395.3" text-anchor="middle" font-size="10.5" fill="#646d72">0.2133</text>
+  <text x="161.4" y="346.5" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#e76125">u₋₃(式15)</text>
+  <text x="161.4" y="360.5" text-anchor="middle" font-size="10.5" fill="#646d72">0.2933</text>
+  <text x="199.9" y="276.2" text-anchor="end" font-size="11.5" font-weight="bold" fill="#e76125">u₋₂(式16)</text>
+  <text x="199.9" y="290.2" text-anchor="end" font-size="10.5" fill="#646d72">0.4133</text>
+  <text x="246.4" y="194.5" text-anchor="end" font-size="11.5" font-weight="bold" fill="#e76125">u₋₁(式17)</text>
+  <text x="246.4" y="208.5" text-anchor="end" font-size="10.5" fill="#646d72">0.5733</text>
+  <circle cx="300.9" cy="147.3" r="4.2" fill="#646d72"/>
+  <circle cx="347.4" cy="182.1" r="4.2" fill="#646d72"/>
+  <text x="309.9" y="141.3" font-size="11.5" fill="#646d72">u₀(自由优化变量)</text>
+  <text x="338.4" y="198.1" text-anchor="end" font-size="11.5" fill="#646d72">u₁</text>
+  <circle cx="393.9" cy="256.2" r="4.2" fill="#d21419"/>
+  <circle cx="440.4" cy="256.2" r="4.2" fill="#d21419"/>
+  <circle cx="486.9" cy="256.2" r="4.2" fill="#d21419"/>
+  <circle cx="533.4" cy="256.2" r="4.2" fill="#d21419"/>
+  <path d="M 393.9 272.2 V 279.2 H 533.4 V 272.2" fill="none" stroke="#d21419" stroke-width="1.4"/>
+  <text x="463.6" y="295.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#d21419">最后控制点重复 4 次(值 0.45)</text>
+  <text x="463.6" y="311.2" text-anchor="middle" font-size="11.5" fill="#646d72">窗口 4 点相同 → θ≡0.45,速度=加速度=jerk=0(式 9)</text>
+  <text x="640.3" y="244.2" text-anchor="end" font-size="11.5" fill="#646d72">终端静止</text>
+  <line x1="80.0" y1="400" x2="80.0" y2="75" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray2)"/>
+  <text x="80.0" y="67" text-anchor="middle" font-size="13" fill="#646d72">θ (rad)</text>
+  <text x="360" y="452" text-anchor="middle" font-size="11.5" fill="#333333">空心点 = 由式 (15)–(17) 从初始状态反解的固定虚结点(§4.5 数值例);t=0 处窗口 [w₀, u₋₃, u₋₂, u₋₁] 精确还原初始位置/速度/加速度且 jerk=0</text>
+  <text x="360" y="471" text-anchor="middle" font-size="11.5" fill="#646d72">优化器只更新灰色实心的自由控制点,两端边界条件自动满足,无需等式约束;曲线为均匀三次 B-spline 真实数值计算</text>
+  <text x="360" y="490" text-anchor="middle" font-size="11.5" fill="#646d72">示意约定:控制点 cₘ 画在 t=(m−4)·dt_u 处(使虚结点位于 t≤0 侧);B-spline 控制多边形本就不落在曲线上</text>
+</svg>

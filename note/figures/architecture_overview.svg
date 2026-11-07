@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 640" font-family="Roboto, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#646d72"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e76125"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="980" height="640" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="490" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#333333">cuRoboV2 端到端数据流</text>
+  <text x="490" y="52" text-anchor="middle" font-size="12.5" fill="#646d72">输入(深度 · 模型 · 目标)→ GPU 原生感知 / 计算核心 / 优化循环 → 全局规划 · MPC · IK · 重定向</text>
+
+  <!-- 列标题 -->
+  <text x="107" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#646d72">输入</text>
+  <text x="460" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#646d72">GPU 原生计算(§3–§6)</text>
+  <text x="850" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#646d72">输出 · 同一公式的四种特例(§3.4)</text>
+
+  <!-- ===== 左侧输入列 ===== -->
+  <rect x="25" y="117" width="165" height="60" rx="4" fill="#ffffff" stroke="#646d72" stroke-width="1.4"/>
+  <text x="107" y="142" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333333">深度相机 / LiDAR</text>
+  <text x="107" y="160" text-anchor="middle" font-size="10.5" fill="#646d72">15 Hz 深度流</text>
+
+  <rect x="25" y="241" width="165" height="68" rx="4" fill="#ffffff" stroke="#646d72" stroke-width="1.4"/>
+  <text x="107" y="261" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333333">URDF 机器人模型</text>
+  <text x="107" y="279" text-anchor="middle" font-size="10" fill="#646d72">RobotBuilder(附录 A)</text>
+  <text x="107" y="295" text-anchor="middle" font-size="10" fill="#646d72">碰撞球 + 自碰撞忽略矩阵</text>
+
+  <rect x="25" y="420" width="165" height="60" rx="4" fill="#ffffff" stroke="#646d72" stroke-width="1.4"/>
+  <text x="107" y="445" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333333">任务目标</text>
+  <text x="107" y="464" text-anchor="middle" font-size="10.5" fill="#646d72">多 link 位姿</text>
+
+  <!-- 输入 → 中间 -->
+  <line x1="190" y1="147" x2="222" y2="147" stroke="#646d72" stroke-width="1.6" marker-end="url(#arrow-gray)"/>
+  <line x1="190" y1="275" x2="222" y2="275" stroke="#646d72" stroke-width="1.6" marker-end="url(#arrow-gray)"/>
+  <line x1="190" y1="450" x2="222" y2="450" stroke="#646d72" stroke-width="1.6" marker-end="url(#arrow-gray)"/>
+
+  <!-- ===== 感知通路(§5)===== -->
+  <rect x="220" y="88" width="480" height="112" rx="6" fill="#ececec"/>
+  <text x="232" y="108" font-size="12.5" font-weight="bold" fill="#333333">感知通路 —— GPU 原生 TSDF / ESDF(§5)</text>
+
+  <rect x="230" y="125" width="104" height="44" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="282" y="143" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">块稀疏 TSDF</text>
+  <text x="282" y="159" text-anchor="middle" font-size="9" fill="#646d72">+primitive 注入</text>
+
+  <rect x="350" y="125" width="104" height="44" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="402" y="143" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">frustum 衰减</text>
+  <text x="402" y="159" text-anchor="middle" font-size="9" fill="#646d72">block 回收</text>
+
+  <rect x="470" y="125" width="104" height="44" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="522" y="143" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">PBA+ 稠密 ESDF</text>
+  <text x="522" y="159" text-anchor="middle" font-size="9" fill="#646d72">按需 · 全工作空间</text>
+
+  <rect x="590" y="125" width="104" height="44" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="642" y="143" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">O(1) 查询</text>
+  <text x="642" y="159" text-anchor="middle" font-size="9" fill="#646d72">距离 + 符号恢复</text>
+
+  <line x1="334" y1="147" x2="347" y2="147" stroke="#e76125" stroke-width="1.8" marker-end="url(#arrow-orange)"/>
+  <line x1="454" y1="147" x2="467" y2="147" stroke="#e76125" stroke-width="1.8" marker-end="url(#arrow-orange)"/>
+  <line x1="574" y1="147" x2="587" y2="147" stroke="#e76125" stroke-width="1.8" marker-end="url(#arrow-orange)"/>
+
+  <text x="460" y="188" text-anchor="middle" font-size="10" fill="#646d72">比 nvblox 快 <tspan fill="#d21419" font-weight="bold">2–10×</tspan> · 内存省 <tspan fill="#d21419" font-weight="bold">2–8×</tspan> · 碰撞召回最高 <tspan fill="#d21419" font-weight="bold">99%</tspan> · 毫秒级更新</text>
+
+  <!-- ESDF → 代价评估 -->
+  <line x1="642" y1="200" x2="642" y2="394" stroke="#e76125" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <text x="650" y="285" font-size="9.5" fill="#646d72">球心距离查询</text>
+  <text x="650" y="299" font-size="9.5" fill="#646d72">d(x) 与梯度</text>
+
+  <!-- ===== 计算核心(§6)===== -->
+  <rect x="220" y="232" width="352" height="100" rx="6" fill="#ececec"/>
+  <text x="232" y="252" font-size="12.5" font-weight="bold" fill="#333333">计算核心 —— 可扩展全身计算(§6)</text>
+
+  <rect x="230" y="262" width="104" height="44" rx="4" fill="#ffffff" stroke="#646d72" stroke-width="1.4"/>
+  <text x="282" y="280" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">拓扑感知 FK</text>
+  <text x="282" y="296" text-anchor="middle" font-size="9" fill="#646d72">稀疏雅可比</text>
+
+  <rect x="346" y="262" width="104" height="44" rx="4" fill="#ffffff" stroke="#646d72" stroke-width="1.4"/>
+  <text x="398" y="280" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">map-reduce 自碰</text>
+  <text x="398" y="296" text-anchor="middle" font-size="9" fill="#646d72">162k 碰撞对</text>
+
+  <rect x="462" y="262" width="104" height="44" rx="4" fill="#ffffff" stroke="#646d72" stroke-width="1.4"/>
+  <text x="514" y="280" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#333333">RNEA 逆动力学</text>
+  <text x="514" y="296" text-anchor="middle" font-size="9" fill="#646d72">O(n) VJP 反传</text>
+
+  <text x="396" y="322" text-anchor="middle" font-size="10" fill="#646d72">人形上 kinematics + 自碰撞加速 <tspan fill="#d21419" font-weight="bold">61×</tspan>(§6.4)</text>
+
+  <!-- 计算核心 → 循环前向 -->
+  <line x1="462" y1="332" x2="462" y2="394" stroke="#646d72" stroke-width="1.6" marker-end="url(#arrow-gray)"/>
+  <text x="470" y="350" font-size="9.5" fill="#646d72">供前向 / 反传调用</text>
+
+  <!-- ===== 轨迹优化循环(§3.5 / §4)===== -->
+  <rect x="220" y="358" width="480" height="200" rx="6" fill="#ececec"/>
+  <text x="232" y="380" font-size="12.5" font-weight="bold" fill="#333333">轨迹优化循环 —— 全 GPU 并行(§3.5 / §4)</text>
+
+  <rect x="232" y="398" width="140" height="42" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="302" y="415" text-anchor="middle" font-size="11" font-weight="bold" fill="#333333">① B 样条插值</text>
+  <text x="302" y="431" text-anchor="middle" font-size="9" fill="#646d72">控制点 → 路标点(§4)</text>
+
+  <rect x="392" y="398" width="140" height="42" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="462" y="415" text-anchor="middle" font-size="11" font-weight="bold" fill="#333333">② 前向计算</text>
+  <text x="462" y="431" text-anchor="middle" font-size="9" fill="#646d72">FK / 雅可比 + RNEA 力矩</text>
+
+  <rect x="552" y="398" width="140" height="42" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="622" y="415" text-anchor="middle" font-size="11" font-weight="bold" fill="#333333">③ 代价评估</text>
+  <text x="622" y="431" text-anchor="middle" font-size="9" fill="#646d72">场景·自碰·C-space·力矩</text>
+
+  <rect x="552" y="488" width="140" height="42" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="622" y="505" text-anchor="middle" font-size="11" font-weight="bold" fill="#333333">④ 代价聚合</text>
+  <text x="622" y="521" text-anchor="middle" font-size="9" fill="#646d72">reduce 归约</text>
+
+  <rect x="392" y="488" width="140" height="42" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="462" y="505" text-anchor="middle" font-size="11" font-weight="bold" fill="#333333">⑤ 反向传播</text>
+  <text x="462" y="521" text-anchor="middle" font-size="9" fill="#646d72">梯度回传至控制点</text>
+
+  <rect x="232" y="488" width="140" height="42" rx="4" fill="#ffffff" stroke="#e76125" stroke-width="1.4"/>
+  <text x="302" y="505" text-anchor="middle" font-size="11" font-weight="bold" fill="#333333">⑥ MPPI + L-BFGS</text>
+  <text x="302" y="521" text-anchor="middle" font-size="9" fill="#646d72">线搜索更新控制点</text>
+
+  <line x1="372" y1="419" x2="388" y2="419" stroke="#e76125" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <line x1="532" y1="419" x2="548" y2="419" stroke="#e76125" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <line x1="622" y1="440" x2="622" y2="484" stroke="#e76125" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <line x1="548" y1="509" x2="536" y2="509" stroke="#e76125" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <line x1="388" y1="509" x2="376" y2="509" stroke="#e76125" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <line x1="302" y1="488" x2="302" y2="444" stroke="#e76125" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <text x="460" y="547" text-anchor="middle" font-size="9.5" fill="#646d72">整条循环捕获为单个 CUDA graph:端到端 <tspan fill="#d21419" font-weight="bold">42 ms</tspan> 中 kernel 仅 31 ms(§3.7 / §7.2)</text>
+
+  <!-- ===== 右侧输出列 ===== -->
+  <line x1="700" y1="450" x2="720" y2="450" stroke="#646d72" stroke-width="1.8"/>
+  <line x1="720" y1="178" x2="720" y2="520" stroke="#646d72" stroke-width="1.8"/>
+  <line x1="720" y1="178" x2="737" y2="178" stroke="#646d72" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+  <line x1="720" y1="292" x2="737" y2="292" stroke="#646d72" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+  <line x1="720" y1="406" x2="737" y2="406" stroke="#646d72" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+  <line x1="720" y1="520" x2="737" y2="520" stroke="#646d72" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+
+  <rect x="740" y="140" width="220" height="76" rx="4" fill="#ffffff" stroke="#d21419" stroke-width="1.4"/>
+  <text x="850" y="160" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333333">全局规划轨迹</text>
+  <text x="850" y="176" text-anchor="middle" font-size="9.5" fill="#646d72">多种子优化 + 图规划器种子</text>
+  <text x="850" y="193" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d21419">3 kg 负载成功率 99.7%</text>
+  <text x="850" y="208" text-anchor="middle" font-size="9.5" fill="#646d72">端到端 42 ms(§7.1 / §7.2)</text>
+
+  <rect x="740" y="254" width="220" height="76" rx="4" fill="#ffffff" stroke="#d21419" stroke-width="1.4"/>
+  <text x="850" y="274" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333333">MPC 反应式控制</text>
+  <text x="850" y="290" text-anchor="middle" font-size="9.5" fill="#646d72">短执行窗口后滚动重解</text>
+  <text x="850" y="307" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d21419">&gt;30 Hz 实时运动生成</text>
+  <text x="850" y="322" text-anchor="middle" font-size="9.5" fill="#646d72">真机深度流避障(§7.7)</text>
+
+  <rect x="740" y="368" width="220" height="76" rx="4" fill="#ffffff" stroke="#d21419" stroke-width="1.4"/>
+  <text x="850" y="388" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333333">无碰撞逆运动学 IK</text>
+  <text x="850" y="404" text-anchor="middle" font-size="9.5" fill="#646d72">退化为单状态优化</text>
+  <text x="850" y="421" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d21419">48-DoF 成功率 99.6%</text>
+  <text x="850" y="436" text-anchor="middle" font-size="9.5" fill="#646d72">cuRobo v1 / PyRoki 均 0%(§7.4)</text>
+
+  <rect x="740" y="482" width="220" height="76" rx="4" fill="#ffffff" stroke="#d21419" stroke-width="1.4"/>
+  <text x="850" y="502" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333333">人形动作重定向</text>
+  <text x="850" y="518" text-anchor="middle" font-size="9.5" fill="#646d72">多 link 位姿序列 + 无碰约束</text>
+  <text x="850" y="535" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d21419">约束满足 89.5%</text>
+  <text x="850" y="550" text-anchor="middle" font-size="9.5" fill="#646d72">下游策略方差降 12×(§7.5)</text>
+
+  <!-- 底部注释 -->
+  <text x="490" y="592" text-anchor="middle" font-size="10" fill="#646d72">数字均出自论文实验(§7):42 ms = 动力学感知规划端到端墙钟;99% = 5 mm 分辨率 ESDF 碰撞召回;61× = G1 人形 kinematics + 自碰撞相对 cuRobo v1 加速</text>
+  <text x="490" y="610" text-anchor="middle" font-size="10" fill="#646d72">橙色 = 主数据流与优化循环 · 灰色 = 模型 / 配置通路 · 红色 = 输出与关键指标;章节号对应本笔记各节</text>
+</svg>

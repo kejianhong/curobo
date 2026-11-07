@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" font-family="Roboto, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e76125"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#646d72"/>
+    </marker>
+    <clipPath id="clip-sph-i">
+      <circle cx="150" cy="295" r="70"/>
+    </clipPath>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="720" height="470" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="360" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333333">球-球自碰撞:融合平方距离 + 两级 map-reduce</text>
+  <text x="360" y="52" text-anchor="middle" font-size="12.5" fill="#646d72">f_ij = (r_i+r_j)² − ‖c_i−c_j‖² = 0.0081 − 0.0041 = 0.0040 &gt; 0 ⇒ 穿透(判定全程无 sqrt)</text>
+
+  <!-- ============ 左:两球相交几何 ============ -->
+  <text x="185" y="86" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#333333">两球相交几何(y-z 平面,真实比例)</text>
+
+  <!-- 球 i (前臂) -->
+  <circle cx="150" cy="295" r="70" fill="#ffffff" stroke="#646d72" stroke-width="2"/>
+  <!-- 球 j (躯干) -->
+  <circle cx="206" cy="225" r="56" fill="#ffffff" stroke="#646d72" stroke-width="2"/>
+  <!-- 重叠区:球 j 被球 i 裁剪 -->
+  <circle cx="206" cy="225" r="56" fill="#e76125" opacity="0.3" clip-path="url(#clip-sph-i)"/>
+  <circle cx="206" cy="225" r="56" fill="none" stroke="#646d72" stroke-width="2"/>
+
+  <!-- 球心连线 -->
+  <line x1="150" y1="295" x2="206" y2="225" stroke="#646d72" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <circle cx="150" cy="295" r="3" fill="#333333"/>
+  <circle cx="206" cy="225" r="3" fill="#333333"/>
+  <text x="163" y="273" text-anchor="end" font-size="11" fill="#646d72">0.064</text>
+
+  <!-- f_ij 标注(重叠区) -->
+  <text x="186" y="259" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#e76125">f_ij &gt; 0</text>
+
+  <!-- 负梯度箭头(推开) -->
+  <line x1="106.3" y1="349.7" x2="78.2" y2="384.9" stroke="#e76125" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="241" y1="181.3" x2="269.1" y2="146.2" stroke="#e76125" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="80" y="404" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#e76125">−∇C ∝ (0,−40,−50)</text>
+  <text x="284" y="136" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#e76125">−∇C ∝ (0,+40,+50)</text>
+
+  <!-- 球标签 -->
+  <text x="152" y="164" text-anchor="middle" font-size="12" fill="#333333">c_j=(0.30, 0.14, 0.55), r_j=0.04</text>
+  <text x="196" y="388" text-anchor="middle" font-size="12" fill="#333333">c_i=(0.30, 0.10, 0.50), r_i=0.05</text>
+  <text x="185" y="422" text-anchor="middle" font-size="12" fill="#333333">C = ½·w·f = 2.0(w=1000)</text>
+
+  <!-- ============ 右:map-reduce 流程 ============ -->
+  <text x="540" y="86" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#333333">map-reduce 两级归约(G1 人形)</text>
+
+  <!-- 顶:全部 pair -->
+  <rect x="420" y="100" width="240" height="34" rx="5" fill="#ececec" stroke="#646d72" stroke-width="1.4"/>
+  <text x="540" y="122" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333333">162,000 个碰撞对</text>
+
+  <!-- 分发箭头 -->
+  <line x1="495" y1="134" x2="462" y2="166" stroke="#646d72" stroke-width="1.6" marker-end="url(#arrow-gray)"/>
+  <line x1="585" y1="134" x2="618" y2="166" stroke="#646d72" stroke-width="1.6" marker-end="url(#arrow-gray)"/>
+  <text x="540" y="156" text-anchor="middle" font-size="11" fill="#646d72">Map kernel</text>
+
+  <!-- Block 0 / Block 1 -->
+  <rect x="385" y="170" width="150" height="86" rx="5" fill="#ffffff" stroke="#e76125" stroke-width="1.8"/>
+  <text x="460" y="188" text-anchor="middle" font-size="12" font-weight="bold" fill="#e76125">Block 0</text>
+  <text x="460" y="204" text-anchor="middle" font-size="10.5" fill="#646d72">pair 0 – 131071</text>
+  <text x="460" y="219" text-anchor="middle" font-size="10.5" fill="#646d72">512 线程 × ≤256 检查</text>
+  <text x="460" y="234" text-anchor="middle" font-size="10.5" fill="#646d72">shared mem 装球</text>
+  <text x="460" y="249" text-anchor="middle" font-size="10.5" fill="#333333">局部归约 max{d, i, j}</text>
+
+  <rect x="555" y="170" width="150" height="86" rx="5" fill="#ffffff" stroke="#e76125" stroke-width="1.8"/>
+  <text x="630" y="188" text-anchor="middle" font-size="12" font-weight="bold" fill="#e76125">Block 1</text>
+  <text x="630" y="204" text-anchor="middle" font-size="10.5" fill="#646d72">pair 131072 – 161999</text>
+  <text x="630" y="219" text-anchor="middle" font-size="10.5" fill="#646d72">512 线程 × ≤256 检查</text>
+  <text x="630" y="234" text-anchor="middle" font-size="10.5" fill="#646d72">shared mem 装球</text>
+  <text x="630" y="249" text-anchor="middle" font-size="10.5" fill="#333333">局部归约 max{d, i, j}</text>
+
+  <text x="540" y="269" text-anchor="middle" font-size="10.5" fill="#8a9296">⌈162000 / 131072⌉</text>
+  <text x="540" y="283" text-anchor="middle" font-size="10.5" fill="#8a9296">= 2 block / 批</text>
+
+  <!-- 汇聚箭头 -->
+  <line x1="460" y1="256" x2="460" y2="288" stroke="#646d72" stroke-width="1.6" marker-end="url(#arrow-gray)"/>
+  <line x1="630" y1="256" x2="630" y2="288" stroke="#646d72" stroke-width="1.6" marker-end="url(#arrow-gray)"/>
+
+  <!-- Reduce -->
+  <rect x="420" y="292" width="240" height="42" rx="5" fill="#ececec" stroke="#646d72" stroke-width="1.4"/>
+  <text x="540" y="309" text-anchor="middle" font-size="12" font-weight="bold" fill="#333333">Reduce kernel(每批 1 block)</text>
+  <text x="540" y="326" text-anchor="middle" font-size="10.5" fill="#646d72">跨 block 归约 → 全局最深穿透对 (i*, j*)</text>
+
+  <!-- 输出 -->
+  <line x1="540" y1="334" x2="540" y2="358" stroke="#646d72" stroke-width="1.6" marker-end="url(#arrow-gray)"/>
+  <rect x="420" y="362" width="240" height="42" rx="5" fill="#ffffff" stroke="#d21419" stroke-width="1.8"/>
+  <text x="540" y="379" text-anchor="middle" font-size="12" font-weight="bold" fill="#d21419">C = ½ w f* = 2.0</text>
+  <text x="540" y="396" text-anchor="middle" font-size="10.5" fill="#646d72">∇C = ±w(c_j − c_i) = (0, ±40, ±50)</text>
+
+  <!-- 底部注释 -->
+  <text x="360" y="440" text-anchor="middle" font-size="12" fill="#646d72">对数 ≤ 1000(如 Franka 818 对)退化为单 kernel 单 block;&gt; 1000 才走两级路径,阈值见 self_collision_params.py:37</text>
+  <text x="360" y="457" text-anchor="middle" font-size="12" fill="#646d72">平方形式:每对省一次 sqrt,梯度 ±wΔ 是线性函数(真距离梯度 Δ/‖Δ‖ 需除模长,且 Δ→0 时奇异)</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 465" font-family="Roboto, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e76125"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="720" height="465" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="360" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333333">Sign Recovery:adjacent voxel 的静态通道符号 × EDT 距离</text>
+  <text x="360" y="52" text-anchor="middle" font-size="13" fill="#646d72">2D 切片,v_esdf = 5 mm;q 与 q′ 的最近 surface site 均为 s,d_EDT = 4 体素 × 5 mm = 2 cm</text>
+
+  <!-- 箱体内部 -->
+  <rect x="125" y="213" width="286" height="154" fill="#ececec" stroke="#646d72" stroke-width="1.5"/>
+  <text x="215" y="340" text-anchor="middle" font-size="12" fill="#646d72">水密箱体内部:φ_geom &lt; 0</text>
+
+  <!-- s→q 与 s→q′ 方向(先画线,再叠方块) -->
+  <line x1="268" y1="236" x2="268" y2="304" stroke="#e76125" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-orange)"/>
+  <line x1="268" y1="212" x2="268" y2="144" stroke="#e76125" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-orange)"/>
+  <text x="278" y="286" font-size="11" fill="#646d72">(0,−1)</text>
+  <text x="278" y="172" font-size="11" fill="#646d72">(0,+1)</text>
+
+  <!-- surface sites:上边(i=4..16, j=8) -->
+  <circle cx="136" cy="224" r="3.5" fill="#e76125"/><circle cx="158" cy="224" r="3.5" fill="#e76125"/><circle cx="180" cy="224" r="3.5" fill="#e76125"/><circle cx="202" cy="224" r="3.5" fill="#e76125"/><circle cx="224" cy="224" r="3.5" fill="#e76125"/><circle cx="246" cy="224" r="3.5" fill="#e76125"/><circle cx="290" cy="224" r="3.5" fill="#e76125"/><circle cx="312" cy="224" r="3.5" fill="#e76125"/><circle cx="334" cy="224" r="3.5" fill="#e76125"/><circle cx="356" cy="224" r="3.5" fill="#e76125"/><circle cx="378" cy="224" r="3.5" fill="#e76125"/><circle cx="400" cy="224" r="3.5" fill="#e76125"/>
+  <!-- 下边(j=2) -->
+  <circle cx="136" cy="356" r="3.5" fill="#e76125"/><circle cx="158" cy="356" r="3.5" fill="#e76125"/><circle cx="180" cy="356" r="3.5" fill="#e76125"/><circle cx="202" cy="356" r="3.5" fill="#e76125"/><circle cx="224" cy="356" r="3.5" fill="#e76125"/><circle cx="246" cy="356" r="3.5" fill="#e76125"/><circle cx="268" cy="356" r="3.5" fill="#e76125"/><circle cx="290" cy="356" r="3.5" fill="#e76125"/><circle cx="312" cy="356" r="3.5" fill="#e76125"/><circle cx="334" cy="356" r="3.5" fill="#e76125"/><circle cx="356" cy="356" r="3.5" fill="#e76125"/><circle cx="378" cy="356" r="3.5" fill="#e76125"/><circle cx="400" cy="356" r="3.5" fill="#e76125"/>
+  <!-- 左边 / 右边(j=3..7) -->
+  <circle cx="136" cy="334" r="3.5" fill="#e76125"/><circle cx="136" cy="312" r="3.5" fill="#e76125"/><circle cx="136" cy="290" r="3.5" fill="#e76125"/><circle cx="136" cy="268" r="3.5" fill="#e76125"/><circle cx="136" cy="246" r="3.5" fill="#e76125"/>
+  <circle cx="400" cy="334" r="3.5" fill="#e76125"/><circle cx="400" cy="312" r="3.5" fill="#e76125"/><circle cx="400" cy="290" r="3.5" fill="#e76125"/><circle cx="400" cy="268" r="3.5" fill="#e76125"/><circle cx="400" cy="246" r="3.5" fill="#e76125"/>
+
+  <!-- 最近 site s = (10,8) -->
+  <circle cx="268" cy="224" r="10" fill="none" stroke="#e76125" stroke-width="1.5"/>
+  <circle cx="268" cy="224" r="6" fill="#e76125"/>
+  <text x="250" y="238" text-anchor="end" font-size="12" font-weight="bold" fill="#e76125">s:最近 site</text>
+
+  <!-- adjacent voxel a = (10,7)(空心方块) -->
+  <rect x="259" y="237" width="18" height="18" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+  <text x="250" y="251" text-anchor="end" font-size="12" font-weight="bold" fill="#333333">a = (10,7)</text>
+  <text x="250" y="268" text-anchor="end" font-size="11.5" fill="#646d72">查静态通道符号</text>
+
+  <!-- adjacent voxel a′ = (10,9) -->
+  <rect x="259" y="193" width="18" height="18" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+  <text x="284" y="207" font-size="12" font-weight="bold" fill="#333333">a′ = (10,9)</text>
+
+  <!-- query q = (10,4)(内部,红) -->
+  <circle cx="268" cy="312" r="5.5" fill="#d21419"/>
+  <text x="284" y="317" font-size="12" font-weight="bold" fill="#d21419">q(内部查询)</text>
+
+  <!-- query q′ = (10,12)(外部,灰) -->
+  <circle cx="268" cy="136" r="5.5" fill="#646d72"/>
+  <text x="284" y="141" font-size="12" font-weight="bold" fill="#646d72">q′(外部查询)</text>
+
+  <!-- sites 说明 -->
+  <text x="268" y="390" text-anchor="middle" font-size="11.5" fill="#646d72">边界体素 = surface sites(|φ| &lt; 0.9 v_tsdf,橙点)</text>
+
+  <!-- 右侧:三种情况 -->
+  <text x="436" y="150" font-size="13.5" font-weight="bold" fill="#333333">符号的三种来源</text>
+  <text x="436" y="177" font-size="12" fill="#333333">① adjacent 命中静态通道(本图):</text>
+  <text x="452" y="195" font-size="12" fill="#333333">ESDF(q) = sign(φ_geom(a)) · d_EDT</text>
+  <text x="452" y="213" font-size="12" fill="#d21419">φ_geom(10,7) &lt; 0 → q 内部:−2 cm</text>
+  <text x="452" y="231" font-size="12" fill="#646d72">φ_geom(10,9) &gt; 0 → q′ 外部:+2 cm</text>
+  <text x="436" y="261" font-size="12" fill="#333333">② a 落在未分配 block → fallback:</text>
+  <text x="452" y="279" font-size="12" fill="#646d72">改用 q 自身 min(φ_depth, φ_geom) 的符号</text>
+  <text x="436" y="309" font-size="12" fill="#333333">③ 完全无观测 → 默认正(外部)</text>
+
+  <!-- 底部注释 -->
+  <text x="360" y="425" text-anchor="middle" font-size="12" fill="#333333">数值:q = (10,4)、s = (10,8) → d_EDT = ‖q−s‖·v_esdf = 4 × 5 mm = 2 cm;a = s + round(1.0·(0,−1)) = (10,7);q′ 同理得 a′ = (10,9)</text>
+  <text x="360" y="443" text-anchor="middle" font-size="12" fill="#646d72">k = adjacent_skip_steps = 1:偏移刻意很小,保证 a 不越出 ±τ 截断带(带外静态通道无数据,见 §5.2.2 的"带外不写")</text>
+</svg>

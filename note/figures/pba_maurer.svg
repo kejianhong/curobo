@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 485" font-family="Roboto, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#646d72"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="720" height="485" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="360" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333333">Maurer 支配判据:B 的抛物线处处不是最低 → 从栈中弹出</text>
+  <text x="360" y="52" text-anchor="middle" font-size="12.5" fill="#646d72">同一查询列上 d²(s, y) = (y − s_y)² + Δ²;A(a_y=2, Δ=0)、B(b_y=6, Δ=5)、C(c_y=9, Δ=0),Δ = site 到该列的横向偏移(体素)</text>
+
+  <!-- 网格线 + y 轴刻度 -->
+  <line x1="90" y1="301.3" x2="668" y2="301.3" stroke="#ececec" stroke-width="1"/>
+  <line x1="90" y1="242.6" x2="668" y2="242.6" stroke="#ececec" stroke-width="1"/>
+  <line x1="90" y1="183.9" x2="668" y2="183.9" stroke="#ececec" stroke-width="1"/>
+  <line x1="90" y1="125.2" x2="668" y2="125.2" stroke="#ececec" stroke-width="1"/>
+  <text x="84" y="305.3" text-anchor="end" font-size="11" fill="#646d72">10</text>
+  <text x="84" y="246.6" text-anchor="end" font-size="11" fill="#646d72">20</text>
+  <text x="84" y="187.9" text-anchor="end" font-size="11" fill="#646d72">30</text>
+  <text x="84" y="129.2" text-anchor="end" font-size="11" fill="#646d72">40</text>
+
+  <!-- 下包络(橙,加粗,先画在底层) -->
+  <polyline points="90.0,336.5 102.4,342.0 114.8,346.8 127.2,350.8 139.6,354.1 152.0,356.7 164.3,358.5 176.7,359.6 189.1,360.0 201.5,359.6 213.9,358.5 226.3,356.7 238.7,354.1 251.1,350.8 263.5,346.8 275.9,342.0 288.3,336.5 300.7,330.3 313.0,323.3 325.4,315.6 337.8,307.2 350.2,298.0 362.6,288.1 375.0,298.0 387.4,307.2 399.8,315.6 412.2,323.3 424.6,330.3 437.0,336.5 449.3,342.0 461.7,346.8 474.1,350.8 486.5,354.1 498.9,356.7 511.3,358.5 523.7,359.6 536.1,360.0 548.5,359.6 560.9,358.5 573.3,356.7 585.7,354.1 598.0,350.8 610.4,346.8 622.8,342.0 635.2,336.5 647.6,330.3 660.0,323.3" fill="none" stroke="#e76125" stroke-width="4.5" stroke-linejoin="round"/>
+
+  <!-- 抛物线 A(灰) -->
+  <polyline points="90.0,336.5 102.4,342.0 114.8,346.8 127.2,350.8 139.6,354.1 152.0,356.7 164.3,358.5 176.7,359.6 189.1,360.0 201.5,359.6 213.9,358.5 226.3,356.7 238.7,354.1 251.1,350.8 263.5,346.8 275.9,342.0 288.3,336.5 300.7,330.3 313.0,323.3 325.4,315.6 337.8,307.2 350.2,298.0 362.6,288.1 375.0,277.5 387.4,266.1 399.8,254.0 412.2,241.1 424.6,227.6 437.0,213.3 449.3,198.2 461.7,182.4 474.1,165.9 486.5,148.7 498.9,130.7 511.3,112.0 523.7,92.6" fill="none" stroke="#646d72" stroke-width="1.7"/>
+  <!-- 抛物线 C(灰) -->
+  <polyline points="200.0,90.2 212.4,109.7 224.8,128.5 237.2,146.6 249.6,163.9 262.0,180.5 274.4,196.4 286.8,211.5 299.2,225.9 311.6,239.6 323.9,252.5 336.3,264.7 348.7,276.1 361.1,286.9 373.5,296.9 385.9,306.1 398.3,314.6 410.7,322.4 423.1,329.5 435.5,335.8 447.9,341.4 460.3,346.3 472.6,350.4 485.0,353.8 497.4,356.4 509.8,358.4 522.2,359.5 534.6,360.0 547.0,359.7 559.4,358.7 571.8,357.0 584.2,354.5 596.6,351.3 608.9,347.3 621.3,342.6 633.7,337.2 646.1,331.1 658.5,324.2" fill="none" stroke="#646d72" stroke-width="1.7"/>
+  <!-- 抛物线 B(红,处处不是最低) -->
+  <polyline points="160.4,90.1 172.8,103.2 185.2,115.6 197.6,127.2 209.9,138.0 222.3,148.2 234.7,157.6 247.1,166.3 259.5,174.2 271.9,181.4 284.3,187.9 296.7,193.6 309.1,198.6 321.5,202.9 333.9,206.4 346.3,209.2 358.6,211.3 371.0,212.6 383.4,213.2 395.8,213.1 408.2,212.2 420.6,210.6 433.0,208.3 445.4,205.2 457.8,201.4 470.2,196.9 482.6,191.6 494.9,185.6 507.3,178.9 519.7,171.4 532.1,163.2 544.5,154.3 556.9,144.6 569.3,134.2 581.7,123.1 594.1,111.2 606.5,98.6" fill="none" stroke="#d21419" stroke-width="2.2"/>
+
+  <!-- 曲线名 -->
+  <text x="516" y="88" text-anchor="end" font-size="12.5" fill="#646d72">d²(A,·)</text>
+  <text x="612" y="94" font-size="12.5" fill="#d21419">d²(B,·)</text>
+  <text x="196" y="86" text-anchor="end" font-size="12.5" fill="#646d72">d²(C,·)</text>
+
+  <!-- B 被支配注释(上方空白区) -->
+  <text x="355" y="110" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#d21419">B 处处不是最低 → 被支配</text>
+  <text x="355" y="129" text-anchor="middle" font-size="12" fill="#646d72">(Voronoi 胞为空,从栈中弹出)</text>
+  <line x1="371" y1="138" x2="385" y2="200" stroke="#646d72" stroke-width="1.2" marker-end="url(#arrow-gray)"/>
+
+  <!-- A、C 交点 -->
+  <line x1="362.6" y1="288.1" x2="362.6" y2="360" stroke="#b0b6b9" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <circle cx="362.6" cy="288.1" r="4.5" fill="#333333"/>
+  <text x="556" y="238" font-size="12.5" font-weight="bold" fill="#333333">A、C 抛物线交点</text>
+  <text x="556" y="256" font-size="12.5" fill="#333333">y* = 5.5,d² = 12.25</text>
+  <text x="556" y="274" font-size="12.5" fill="#333333">此处 B 还高悬在 25.25</text>
+  <line x1="550" y1="262" x2="371" y2="288" stroke="#646d72" stroke-width="1.2" marker-end="url(#arrow-gray)"/>
+
+  <!-- 坐标轴 -->
+  <line x1="90" y1="82" x2="90" y2="365" stroke="#646d72" stroke-width="1.5"/>
+  <line x1="82" y1="360" x2="676" y2="360" stroke="#646d72" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="98" y="80" font-size="12" fill="#646d72">d²(体素²)</text>
+  <text x="684" y="364" font-size="12" font-style="italic" fill="#646d72">y</text>
+
+  <!-- x 刻度 -->
+  <text x="90" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">0</text>
+  <text x="139.6" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">1</text>
+  <text x="189.1" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">2</text>
+  <text x="238.7" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">3</text>
+  <text x="288.3" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">4</text>
+  <text x="337.8" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">5</text>
+  <text x="387.4" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">6</text>
+  <text x="437.0" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">7</text>
+  <text x="486.5" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">8</text>
+  <text x="536.1" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">9</text>
+  <text x="585.7" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">10</text>
+  <text x="635.2" y="376" text-anchor="middle" font-size="10" fill="#b0b6b9">11</text>
+
+  <!-- site 标注(轴上) -->
+  <circle cx="189.1" cy="360" r="4.5" fill="#646d72"/>
+  <circle cx="536.1" cy="360" r="4.5" fill="#646d72"/>
+  <line x1="387.4" y1="354" x2="387.4" y2="366" stroke="#d21419" stroke-width="2"/>
+  <text x="189.1" y="392" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#646d72">a_y = 2</text>
+  <text x="362.6" y="392" text-anchor="end" font-size="11.5" font-weight="bold" fill="#333333">y* = 5.5 &lt;</text>
+  <text x="393" y="392" font-size="11.5" font-weight="bold" fill="#d21419">b_y = 6</text>
+  <text x="536.1" y="392" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#646d72">c_y = 9</text>
+
+  <!-- 底部注释 -->
+  <text x="360" y="424" text-anchor="middle" font-size="12" fill="#333333">整数判据代入:LHS = [(2+6)(6−2) + 5·5]×(9−6) = 57×3 = 171 &gt; RHS = [(6+9)(9−6) − 5·5]×(6−2) = 20×4 = 80 → pop B</text>
+  <text x="360" y="444" text-anchor="middle" font-size="12" fill="#646d72">等价形式:y_AB = 57/8 = 7.125(B 开始赢过 A)&gt; y_BC = 20/6 ≈ 4.83(C 开始赢过 B)→ B 的潜在胜出区间为空</text>
+  <text x="360" y="462" text-anchor="middle" font-size="12" fill="#646d72">曲线为真实数值:d²(A,y) = (y−2)²、d²(B,y) = (y−6)² + 25、d²(C,y) = (y−9)²;下包络(橙)即该列的部分 Voronoi 指派</text>
+</svg>

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" font-family="Roboto, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e76125"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d21419"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="720" height="480" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="360" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333333">Jacobian 列的几何:切向方向 × 杠杆长度,与拓扑稀疏反传</text>
+  <text x="360" y="52" text-anchor="middle" font-size="12.5" fill="#646d72">左:2-link 平面臂 q₁=30°, q₂=45°, L₁=0.4 m, L₂=0.3 m(按真实角度绘制);右:人形树,右手梯度只回传祖先链</text>
+
+  <!-- ============ 左:2-link 平面臂 ============ -->
+  <text x="185" y="84" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#333333">每列 = ω_j × (p_e − p_j)</text>
+
+  <!-- 基线与 q1 角弧 -->
+  <line x1="90" y1="350" x2="175" y2="350" stroke="#b0b6b9" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <path d="M 125 350 A 35 35 0 0 0 120.3 332.5" fill="none" stroke="#646d72" stroke-width="1.2"/>
+  <text x="146" y="336" font-size="12" fill="#333333">q₁=30°</text>
+
+  <!-- 杠杆虚线 p1→pe -->
+  <line x1="90" y1="350" x2="225.7" y2="193.3" stroke="#b0b6b9" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="143" y="260" font-size="11.5" fill="#8a9296" transform="rotate(-49 143 260)">杠杆 0.648 m</text>
+
+  <!-- link1 延长线与 q2 角弧 -->
+  <line x1="200.8" y1="286" x2="244.1" y2="261" stroke="#b0b6b9" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <path d="M 226.8 271 A 30 30 0 0 0 208.6 257" fill="none" stroke="#646d72" stroke-width="1.2"/>
+  <text x="236" y="250" font-size="12" fill="#333333">q₂=45°</text>
+
+  <!-- 连杆 -->
+  <line x1="90" y1="350" x2="200.8" y2="286" stroke="#646d72" stroke-width="6" stroke-linecap="round"/>
+  <line x1="200.8" y1="286" x2="225.7" y2="193.3" stroke="#646d72" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- 切向箭头(橙):长度 ∝ 杠杆 -->
+  <line x1="225.7" y1="193.3" x2="171.8" y2="146.6" stroke="#e76125" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="225.7" y1="193.3" x2="193.8" y2="184.8" stroke="#e76125" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="150" y="121" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#e76125">ω₁×(p_e−p₁)</text>
+  <text x="150" y="136" text-anchor="middle" font-size="11.5" fill="#e76125">‖·‖=0.648(长杠杆)</text>
+  <text x="186" y="172" text-anchor="end" font-size="12.5" font-weight="bold" fill="#e76125">ω₂×(p_e−p₂)</text>
+  <text x="186" y="187" text-anchor="end" font-size="11.5" fill="#e76125">‖·‖=0.300</text>
+
+  <!-- 关节与末端 -->
+  <circle cx="90" cy="350" r="6" fill="#646d72"/>
+  <circle cx="200.8" cy="286" r="5.5" fill="#646d72"/>
+  <circle cx="225.7" cy="193.3" r="4.5" fill="#333333"/>
+  <text x="90" y="372" text-anchor="middle" font-size="12" fill="#333333">p₁=(0, 0)</text>
+  <text x="214" y="300" font-size="12" fill="#333333">p₂=(0.346, 0.200)</text>
+  <text x="236" y="197" font-size="12" fill="#333333">p_e=(0.424, 0.490)</text>
+
+  <!-- 左图结论 -->
+  <text x="190" y="404" text-anchor="middle" font-size="12" fill="#333333">∇𝓛=(1,0,0) 时:g₁ = −0.490,g₂ = −0.290</text>
+
+  <!-- ============ 右:人形树稀疏反传 ============ -->
+  <text x="545" y="84" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#333333">topology cache 的稀疏反传</text>
+
+  <!-- 边(灰) -->
+  <line x1="530" y1="251" x2="530" y2="205" stroke="#b0b6b9" stroke-width="1.6"/>
+  <line x1="510" y1="252" x2="470" y2="220" stroke="#b0b6b9" stroke-width="1.6"/>
+  <line x1="443" y1="200" x2="428" y2="169" stroke="#b0b6b9" stroke-width="1.6"/>
+  <line x1="518" y1="341" x2="490" y2="381" stroke="#b0b6b9" stroke-width="1.6"/>
+  <line x1="542" y1="341" x2="570" y2="381" stroke="#b0b6b9" stroke-width="1.6"/>
+
+  <!-- 边(橙,祖先链,箭头指向根 = 梯度流向) -->
+  <line x1="634" y1="169" x2="617" y2="199" stroke="#e76125" stroke-width="2.4" marker-end="url(#arrow-orange)"/>
+  <line x1="590" y1="221" x2="551" y2="251" stroke="#e76125" stroke-width="2.4" marker-end="url(#arrow-orange)"/>
+  <line x1="530" y1="273" x2="530" y2="316" stroke="#e76125" stroke-width="2.4" marker-end="url(#arrow-orange)"/>
+
+  <!-- 灰节点 -->
+  <g>
+    <rect x="507" y="183" width="46" height="22" rx="4" fill="#ececec" stroke="#b0b6b9"/>
+    <text x="530" y="199" text-anchor="middle" font-size="12" fill="#646d72">头</text>
+    <rect x="427" y="199" width="46" height="22" rx="4" fill="#ececec" stroke="#b0b6b9"/>
+    <text x="450" y="215" text-anchor="middle" font-size="12" fill="#646d72">左臂</text>
+    <rect x="397" y="147" width="46" height="22" rx="4" fill="#ececec" stroke="#b0b6b9"/>
+    <text x="420" y="163" text-anchor="middle" font-size="12" fill="#646d72">左手</text>
+    <rect x="455" y="381" width="46" height="22" rx="4" fill="#ececec" stroke="#b0b6b9"/>
+    <text x="478" y="397" text-anchor="middle" font-size="12" fill="#646d72">左腿</text>
+    <rect x="559" y="381" width="46" height="22" rx="4" fill="#ececec" stroke="#b0b6b9"/>
+    <text x="582" y="397" text-anchor="middle" font-size="12" fill="#646d72">右腿</text>
+  </g>
+  <text x="420" y="136" text-anchor="middle" font-size="11" fill="#b0b6b9">梯度为零 → 早退</text>
+
+  <!-- 橙节点(祖先链) -->
+  <g>
+    <rect x="617" y="147" width="46" height="22" rx="4" fill="#e76125"/>
+    <text x="640" y="163" text-anchor="middle" font-size="12" fill="#ffffff">右手</text>
+    <rect x="587" y="199" width="46" height="22" rx="4" fill="#e76125"/>
+    <text x="610" y="215" text-anchor="middle" font-size="12" fill="#ffffff">右臂</text>
+    <rect x="507" y="251" width="46" height="22" rx="4" fill="#e76125"/>
+    <text x="530" y="267" text-anchor="middle" font-size="12" fill="#ffffff">躯干</text>
+    <rect x="507" y="319" width="46" height="22" rx="4" fill="#e76125"/>
+    <text x="530" y="335" text-anchor="middle" font-size="12" fill="#ffffff">根</text>
+  </g>
+
+  <!-- 红色末端梯度 -->
+  <line x1="700" y1="112" x2="668" y2="142" stroke="#d21419" stroke-width="2.6" marker-end="url(#arrow-red)"/>
+  <text x="688" y="104" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#d21419">∇_p𝓛</text>
+
+  <!-- CSR 注 -->
+  <text x="545" y="428" text-anchor="middle" font-size="11.5" fill="#646d72">linkChain[右手] = [根, 躯干, 右臂, 右手](linkChainOffsets 一步起址)</text>
+
+  <!-- 底部注释 -->
+  <text x="360" y="450" text-anchor="middle" font-size="12" fill="#646d72">左:切向箭头 ⊥ 连线 p_j→p_e,长度 ∝ 杠杆 ‖p_e−p_j‖ —— 离末端越远的关节对末端影响越大</text>
+  <text x="360" y="467" text-anchor="middle" font-size="12" fill="#646d72">右:只有橙色祖先链被遍历(Algorithm 1 第 4 行),灰色子树整体跳过;反传成本 ∝ 激活链长而非总 DoF</text>
+</svg>

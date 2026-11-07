@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" font-family="Roboto, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#646d72"/>
+    </marker>
+    <marker id="arrow-light" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b0b6b9"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="720" height="470" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="360" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333333">同一条视线上的三个「距离」</text>
+  <text x="360" y="52" text-anchor="middle" font-size="13" fill="#646d72">θ = 30°(视线与光轴夹角),φ = 60°(视线与表面法线夹角)</text>
+
+  <!-- 物体内部(表面以下) -->
+  <rect x="240" y="339.3" width="390" height="38" fill="#ececec"/>
+  <line x1="240" y1="339.3" x2="630" y2="339.3" stroke="#333333" stroke-width="2.5"/>
+  <text x="555" y="364" text-anchor="middle" font-size="12.5" fill="#646d72">物体(杯壁)内部</text>
+
+  <!-- 相机 -->
+  <rect x="36" y="112" width="32" height="36" rx="3" fill="#646d72"/>
+  <polygon points="68,121 83,130 68,139" fill="#646d72"/>
+  <text x="52" y="104" text-anchor="middle" font-size="13" fill="#333333">相机</text>
+
+  <!-- 光轴 -->
+  <line x1="80" y1="130" x2="638" y2="130" stroke="#b0b6b9" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#arrow-light)"/>
+  <text x="646" y="134" font-size="13" fill="#646d72">光轴 z</text>
+
+  <!-- 像平面 -->
+  <line x1="130" y1="95" x2="130" y2="185" stroke="#b0b6b9" stroke-width="1.5"/>
+  <text x="130" y="88" text-anchor="middle" font-size="12.5" fill="#646d72">像平面</text>
+  <circle cx="130" cy="158.9" r="3.2" fill="#333333"/>
+  <text x="140" y="176" font-size="12.5" fill="#333333">像素 (u, v)</text>
+
+  <!-- θ 角弧 -->
+  <path d="M 125 130 A 45 45 0 0 1 119 152.5" fill="none" stroke="#646d72" stroke-width="1.3"/>
+  <text x="152" y="152" font-size="13" fill="#333333">θ = 30°</text>
+
+  <!-- 视线: C→V 浅色, V→S 深色(沿视线欧氏距离) -->
+  <line x1="80" y1="130" x2="322.5" y2="270" stroke="#b0b6b9" stroke-width="1.8"/>
+  <line x1="322.5" y1="270" x2="442.5" y2="339.3" stroke="#646d72" stroke-width="3.2"/>
+  <text x="215" y="193" font-size="12.5" fill="#8a9296" transform="rotate(30 215 193)">视线</text>
+  <text x="389" y="293" text-anchor="middle" font-size="13" font-weight="bold" fill="#646d72" transform="rotate(30 389 293)">沿视线 2.31 cm</text>
+
+  <!-- 真实垂直距离 V→F (红) -->
+  <line x1="322.5" y1="270" x2="322.5" y2="339.3" stroke="#d21419" stroke-width="3"/>
+  <path d="M 322.5 331.3 H 330.5 V 339.3" fill="none" stroke="#646d72" stroke-width="1.2"/>
+
+  <!-- 表面法线 (从 S 向上) -->
+  <line x1="442.5" y1="339.3" x2="442.5" y2="252" stroke="#646d72" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="450" y="260" font-size="13" fill="#333333">法线 n</text>
+
+  <!-- φ 角弧 -->
+  <path d="M 442.5 305.3 A 34 34 0 0 0 413.1 322.3" fill="none" stroke="#646d72" stroke-width="1.3"/>
+  <text x="392" y="320" text-anchor="end" font-size="13" fill="#333333">φ = 60°</text>
+
+  <!-- 投影距离 Δz 测量线 (橙, 上方) -->
+  <line x1="322.5" y1="261" x2="322.5" y2="212" stroke="#b0b6b9" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="442.5" y1="248" x2="442.5" y2="212" stroke="#b0b6b9" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="322.5" y1="216" x2="442.5" y2="216" stroke="#e76125" stroke-width="3"/>
+  <line x1="322.5" y1="210" x2="322.5" y2="222" stroke="#e76125" stroke-width="2"/>
+  <line x1="442.5" y1="210" x2="442.5" y2="222" stroke="#e76125" stroke-width="2"/>
+  <text x="382" y="200" text-anchor="middle" font-size="13" font-weight="bold" fill="#e76125">投影距离 Δz = 0.80 − 0.78 = 2.0 cm(公式实际使用)</text>
+
+  <!-- 体素 V -->
+  <rect x="315" y="262.5" width="15" height="15" fill="#ffffff" stroke="#646d72" stroke-width="1.8"/>
+  <text x="305" y="262" text-anchor="end" font-size="13" fill="#333333">体素中心 V</text>
+  <text x="305" y="277" text-anchor="end" font-size="12.5" fill="#646d72">p_c,z = 0.78 m</text>
+
+  <!-- 真实距离标签 (左列, 红) -->
+  <text x="305" y="302" text-anchor="end" font-size="13" font-weight="bold" fill="#d21419">真实垂直距离</text>
+  <text x="305" y="317" text-anchor="end" font-size="13" font-weight="bold" fill="#d21419">1.15 cm(理想 SDF)</text>
+
+  <!-- 表面命中点 S -->
+  <circle cx="442.5" cy="339.3" r="4" fill="#333333"/>
+  <text x="452" y="334" font-size="13" fill="#333333">表面命中点 S(深度图记录 D(u,v) = 0.80 m)</text>
+
+  <!-- 底部公式与说明 -->
+  <text x="360" y="410" text-anchor="middle" font-size="12.5" fill="#333333">关系:沿视线欧氏距离 = Δz / cosθ = 2 / cos30° = 2.31 cm;真实垂直距离 = (Δz / cosθ) · cosφ = 2.31 × cos60° = 1.15 cm</text>
+  <text x="360" y="430" text-anchor="middle" font-size="12" fill="#646d72">TSDF 积分存入的是橙色的 Δz(同一视线上两个 z 坐标之差);体素恰在表面上时三者同时为 0(零穿越精确)</text>
+  <text x="360" y="448" text-anchor="middle" font-size="12" fill="#646d72">角度按真实值绘制;长度比例经夸大以便观察(实际 Δz = 2 cm ≪ p_c,z = 0.78 m)</text>
+</svg>

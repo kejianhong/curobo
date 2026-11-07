@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 490" font-family="Roboto, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#646d72"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="720" height="490" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="360" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333333">Frustum-Aware 衰减:三个区域 block 的权重命运(式 18)</text>
+  <text x="360" y="52" text-anchor="middle" font-size="13" fill="#646d72">α_t = 1.0(视锥外不衰减)、α_f = 0.5(视锥内每帧减半);右图纵轴为对数刻度</text>
+
+  <!-- ========== 左:俯视图 ========== -->
+  <text x="185" y="82" text-anchor="middle" font-size="14" font-weight="bold" fill="#333333">俯视图</text>
+
+  <!-- 视锥楔形 -->
+  <polygon points="76,212 330,105 330,318" fill="#ececec"/>
+  <line x1="76" y1="212" x2="330" y2="105" stroke="#b0b6b9" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="76" y1="212" x2="330" y2="318" stroke="#b0b6b9" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="300" y="130" text-anchor="end" font-size="12" fill="#646d72">视锥</text>
+
+  <!-- 相机 -->
+  <rect x="38" y="197" width="26" height="30" rx="3" fill="#646d72"/>
+  <polygon points="64,204 76,212 64,220" fill="#646d72"/>
+  <text x="38" y="188" font-size="12.5" fill="#333333">相机(15 Hz)</text>
+
+  <!-- A 区:杯子刚被拿走(虚线圆 = 幽灵) -->
+  <circle cx="215" cy="180" r="15" fill="none" stroke="#e76125" stroke-width="2.2" stroke-dasharray="5 4"/>
+  <text x="215" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#e76125">A</text>
+  <text x="215" y="212" text-anchor="middle" font-size="11.5" fill="#646d72">杯子刚被拿走</text>
+
+  <!-- B 区:水壶还在 -->
+  <circle cx="255" cy="250" r="15" fill="#b0b6b9" stroke="#646d72" stroke-width="1.5"/>
+  <text x="255" y="255" text-anchor="middle" font-size="13" font-weight="bold" fill="#333333">B</text>
+  <text x="255" y="282" text-anchor="middle" font-size="11.5" fill="#646d72">水壶还在</text>
+
+  <!-- C 区:视锥外货架 -->
+  <rect x="36" y="315" width="120" height="32" fill="#b0b6b9" stroke="#646d72" stroke-width="1.5"/>
+  <text x="52" y="336" font-size="13" font-weight="bold" fill="#333333">C</text>
+  <text x="96" y="364" text-anchor="middle" font-size="11.5" fill="#646d72">货架(视锥外,身后)</text>
+
+  <!-- ========== 右:权重-帧数曲线 ========== -->
+  <text x="550" y="82" text-anchor="middle" font-size="14" font-weight="bold" fill="#333333">block 权重 w 随帧数演化</text>
+
+  <!-- 网格线 + y 轴刻度(对数) -->
+  <line x1="414" y1="103.9" x2="686" y2="103.9" stroke="#ececec" stroke-width="1"/>
+  <line x1="414" y1="137.9" x2="686" y2="137.9" stroke="#ececec" stroke-width="1"/>
+  <line x1="414" y1="209.1" x2="686" y2="209.1" stroke="#ececec" stroke-width="1"/>
+  <line x1="414" y1="280.2" x2="686" y2="280.2" stroke="#ececec" stroke-width="1"/>
+  <text x="408" y="107.9" text-anchor="end" font-size="11" fill="#646d72">30</text>
+  <text x="408" y="141.9" text-anchor="end" font-size="11" fill="#646d72">10</text>
+  <text x="408" y="191.6" text-anchor="end" font-size="11" fill="#646d72">2</text>
+  <text x="408" y="213.1" text-anchor="end" font-size="11" fill="#646d72">1</text>
+  <text x="408" y="284.2" text-anchor="end" font-size="11" fill="#646d72">0.1</text>
+
+  <!-- 坐标轴 -->
+  <line x1="414" y1="90" x2="414" y2="342" stroke="#646d72" stroke-width="1.5"/>
+  <line x1="414" y1="342" x2="690" y2="342" stroke="#646d72" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="420" y="358" font-size="11" fill="#646d72">0</text>
+  <text x="472" y="358" text-anchor="middle" font-size="11" fill="#646d72">2</text>
+  <text x="524" y="358" text-anchor="middle" font-size="11" fill="#646d72">4</text>
+  <text x="576" y="358" text-anchor="middle" font-size="11" fill="#646d72">6</text>
+  <text x="628" y="358" text-anchor="middle" font-size="11" fill="#646d72">8</text>
+  <text x="680" y="358" text-anchor="middle" font-size="11" fill="#646d72">10</text>
+  <text x="550" y="378" text-anchor="middle" font-size="12" fill="#646d72">帧(15 Hz → 7 帧 ≈ 0.5 s)</text>
+
+  <!-- 回收阈值(红色虚线) -->
+  <line x1="414" y1="251.9" x2="686" y2="251.9" stroke="#d21419" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="424" y="246" font-size="11.5" fill="#d21419">回收阈值</text>
+
+  <!-- B 稳态渐近线 w*=2 -->
+  <line x1="414" y1="187.6" x2="686" y2="187.6" stroke="#b0b6b9" stroke-width="1" stroke-dasharray="3 4"/>
+
+  <!-- C 曲线:30 不变 -->
+  <line x1="420" y1="103.9" x2="680" y2="103.9" stroke="#b0b6b9" stroke-width="2.5"/>
+  <text x="686" y="97" text-anchor="end" font-size="12" font-weight="bold" fill="#646d72">C 区:30(不变)</text>
+
+  <!-- B 曲线:0.5w+1 → 2 -->
+  <polyline points="420.0,103.9 446.0,123.3 472.0,141.1 498.0,156.3 524.0,168.2 550.0,176.4 576.0,181.5 602.0,184.4 628.0,186.0 654.0,186.8 680.0,187.2" fill="none" stroke="#646d72" stroke-width="2.5"/>
+  <text x="686" y="207" text-anchor="end" font-size="12" font-weight="bold" fill="#646d72">B 区 → w* = 2</text>
+
+  <!-- A 曲线:0.5w,帧 7 回收 -->
+  <polyline points="420.0,103.9 446.0,125.3 472.0,146.8 498.0,168.2 524.0,189.6 550.0,211.0 576.0,232.5 602.0,253.9" fill="none" stroke="#e76125" stroke-width="2.5"/>
+  <line x1="596" y1="247.9" x2="608" y2="259.9" stroke="#d21419" stroke-width="2.5"/>
+  <line x1="596" y1="259.9" x2="608" y2="247.9" stroke="#d21419" stroke-width="2.5"/>
+  <text x="560" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="#e76125">A 区:帧 7,w = 0.23 → 回收</text>
+
+  <!-- 底部注释 -->
+  <text x="360" y="455" text-anchor="middle" font-size="12" fill="#646d72">曲线为真实递推数值:A:w ← 0.5w,7 帧(0.5 s)从 30 跌到 0.23,哈希槽写墓碑、block 进 free list;B:w ← 0.5w + 1 → w* = 1/(1−0.5) = 2</text>
+  <text x="360" y="473" text-anchor="middle" font-size="12" fill="#646d72">C:α_t = 1 权重原封不动——机械臂转身作业时身后地图不"蒸发"。逐帧数值与 §5.3 例子表格一致</text>
+</svg>

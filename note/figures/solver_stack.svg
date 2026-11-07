@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" font-family="Roboto, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#646d72"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e76125"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d21419"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="720" height="560" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="360" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#333333">求解器栈:N 个种子并行 × (MPPI 粒子探索 → L-BFGS 梯度精修)</text>
+  <text x="360" y="49" text-anchor="middle" font-size="12.5" fill="#646d72">每个种子 = 一个独立优化问题,批量摊平后同一批 kernel 处理;阶段间用 best_action 接力</text>
+
+  <!-- ===== 上半:管线 ===== -->
+  <!-- 种子列 -->
+  <text x="80" y="80" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333333">种子生成</text>
+  <rect x="28" y="92" width="104" height="26" rx="4" fill="#ececec" stroke="#646d72" stroke-width="1"/>
+  <text x="80" y="109" text-anchor="middle" font-size="11" fill="#333333">IK 解 1 → 线性插值</text>
+  <rect x="28" y="126" width="104" height="26" rx="4" fill="#ececec" stroke="#646d72" stroke-width="1"/>
+  <text x="80" y="143" text-anchor="middle" font-size="11" fill="#333333">IK 解 2 → 线性插值</text>
+  <rect x="28" y="160" width="104" height="26" rx="4" fill="#ececec" stroke="#646d72" stroke-width="1"/>
+  <text x="80" y="177" text-anchor="middle" font-size="11" fill="#333333">graph planner 路径</text>
+  <text x="80" y="200" text-anchor="middle" font-size="12" fill="#646d72">⋮ 共 N 个种子</text>
+
+  <!-- 种子 → MPPI 三条并行车道 -->
+  <line x1="132" y1="105" x2="186" y2="105" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray)"/>
+  <line x1="132" y1="139" x2="186" y2="139" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray)"/>
+  <line x1="132" y1="173" x2="186" y2="173" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray)"/>
+
+  <!-- MPPI 阶段 -->
+  <rect x="190" y="72" width="150" height="136" rx="6" fill="#ffffff" stroke="#e76125" stroke-width="2"/>
+  <text x="265" y="92" text-anchor="middle" font-size="13" font-weight="bold" fill="#e76125">MPPI(可选/IK 默认)</text>
+  <text x="265" y="107" text-anchor="middle" font-size="10.5" fill="#646d72">3–4 迭代 × 25 粒子/种子</text>
+  <!-- 粒子云:每条车道一小团 -->
+  <g fill="#e76125" opacity="0.75">
+    <circle cx="228" cy="126" r="2.2"/><circle cx="240" cy="119" r="2.2"/><circle cx="252" cy="129" r="2.2"/>
+    <circle cx="236" cy="133" r="2.2"/><circle cx="247" cy="123" r="2.2"/><circle cx="259" cy="120" r="2.2"/>
+    <circle cx="230" cy="152" r="2.2"/><circle cx="243" cy="147" r="2.2"/><circle cx="255" cy="156" r="2.2"/>
+    <circle cx="238" cy="160" r="2.2"/><circle cx="250" cy="151" r="2.2"/><circle cx="262" cy="158" r="2.2"/>
+    <circle cx="229" cy="180" r="2.2"/><circle cx="241" cy="175" r="2.2"/><circle cx="253" cy="184" r="2.2"/>
+    <circle cx="237" cy="188" r="2.2"/><circle cx="249" cy="179" r="2.2"/><circle cx="261" cy="186" r="2.2"/>
+  </g>
+  <!-- 均值移动箭头 -->
+  <line x1="266" y1="126" x2="306" y2="126" stroke="#e76125" stroke-width="1.6" marker-end="url(#arrow-orange)"/>
+  <line x1="268" y1="153" x2="308" y2="153" stroke="#e76125" stroke-width="1.6" marker-end="url(#arrow-orange)"/>
+  <line x1="267" y1="181" x2="307" y2="181" stroke="#e76125" stroke-width="1.6" marker-end="url(#arrow-orange)"/>
+  <text x="265" y="202" text-anchor="middle" font-size="10.5" fill="#646d72">softmax 加权移动分布均值</text>
+
+  <!-- MPPI → LBFGS -->
+  <line x1="340" y1="105" x2="392" y2="105" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray)"/>
+  <line x1="340" y1="139" x2="392" y2="139" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray)"/>
+  <line x1="340" y1="173" x2="392" y2="173" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray)"/>
+  <text x="366" y="95" text-anchor="middle" font-size="10" fill="#646d72">best</text>
+
+  <!-- L-BFGS 阶段 -->
+  <rect x="396" y="72" width="158" height="136" rx="6" fill="#ffffff" stroke="#646d72" stroke-width="2"/>
+  <text x="475" y="92" text-anchor="middle" font-size="13" font-weight="bold" fill="#333333">L-BFGS + 线搜索</text>
+  <text x="475" y="107" text-anchor="middle" font-size="10.5" fill="#646d72">100 迭代(25×4 次图重放)</text>
+  <!-- 每车道:锯齿下降折线示意梯度精修 -->
+  <g stroke="#646d72" stroke-width="1.6" fill="none">
+    <path d="M 412 121 L 428 130 L 444 125 L 462 132 L 484 130" marker-end="url(#arrow-gray)"/>
+    <path d="M 412 148 L 428 157 L 444 152 L 462 159 L 484 157" marker-end="url(#arrow-gray)"/>
+    <path d="M 412 176 L 428 185 L 444 180 L 462 187 L 484 185" marker-end="url(#arrow-gray)"/>
+  </g>
+  <!-- 线搜索刻度 -->
+  <g stroke="#e76125" stroke-width="1.4">
+    <line x1="500" y1="123" x2="500" y2="135"/><line x1="510" y1="123" x2="510" y2="135"/>
+    <line x1="524" y1="123" x2="524" y2="135"/><line x1="540" y1="123" x2="540" y2="135"/>
+  </g>
+  <text x="520" y="152" text-anchor="middle" font-size="10" fill="#e76125">4 步长并行</text>
+  <text x="475" y="202" text-anchor="middle" font-size="10.5" fill="#646d72">two-loop 方向,每种子独立历史</text>
+
+  <!-- LBFGS → 选优:三条车道汇聚 -->
+  <line x1="554" y1="105" x2="600" y2="132" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray)"/>
+  <line x1="554" y1="139" x2="600" y2="139" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray)"/>
+  <line x1="554" y1="173" x2="600" y2="147" stroke="#646d72" stroke-width="1.4" marker-end="url(#arrow-gray)"/>
+
+  <!-- 选优 -->
+  <rect x="604" y="96" width="92" height="88" rx="6" fill="#ececec" stroke="#646d72" stroke-width="1.5"/>
+  <text x="650" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="#333333">按代价选优</text>
+  <text x="650" y="136" text-anchor="middle" font-size="10.5" fill="#646d72">feasible ∧</text>
+  <text x="650" y="150" text-anchor="middle" font-size="10.5" fill="#646d72">converged</text>
+  <text x="650" y="168" text-anchor="middle" font-size="10.5" fill="#d21419">违约种子淘汰</text>
+
+  <!-- ===== 下半:代价地形 ===== -->
+  <text x="360" y="248" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#333333">为什么先粒子后梯度:一维代价地形示意</text>
+
+  <!-- 坐标轴 -->
+  <line x1="60" y1="470" x2="670" y2="470" stroke="#646d72" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <line x1="60" y1="470" x2="60" y2="268" stroke="#646d72" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="52" y="276" text-anchor="end" font-size="12" fill="#646d72">代价 L(U)</text>
+  <text x="668" y="486" text-anchor="end" font-size="12" fill="#646d72">控制点空间(一维投影)</text>
+
+  <!-- 代价曲线:左边坏盆地(浅,高),中间高墙(障碍),右边好盆地(深) -->
+  <path d="M 70 300
+           C 110 420, 150 430, 190 380
+           C 220 344, 248 300, 272 288
+           C 296 276, 316 282, 336 330
+           C 356 378, 386 448, 430 456
+           C 474 464, 520 430, 566 372
+           C 600 330, 634 296, 664 280"
+        fill="none" stroke="#646d72" stroke-width="2.2"/>
+  <!-- 高墙标注(置于山体内部) -->
+  <text x="292" y="312" text-anchor="middle" font-size="11" fill="#646d72">碰撞高墙</text>
+  <text x="292" y="326" text-anchor="middle" font-size="10" fill="#b0b6b9">(障碍物)</text>
+
+  <!-- 坏盆地:红色梯度法卡死 -->
+  <circle cx="140" cy="424" r="4" fill="#d21419"/>
+  <path d="M 96 342 C 108 380, 120 408, 132 419" fill="none" stroke="#d21419" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+  <text x="168" y="448" text-anchor="middle" font-size="11" fill="#d21419">纯梯度法:在种子所在的</text>
+  <text x="168" y="462" text-anchor="middle" font-size="11" fill="#d21419">坏盆地精确收敛到烂解</text>
+
+  <!-- 种子起点(灰点,在坏盆地边坡上) -->
+  <circle cx="96" cy="338" r="4" fill="#646d72"/>
+  <text x="96" y="326" text-anchor="middle" font-size="11" fill="#646d72">种子(插值,穿墙,代价高)</text>
+
+  <!-- MPPI 粒子云:跨墙撒到两侧 -->
+  <g fill="#e76125" opacity="0.8">
+    <circle cx="178" cy="376" r="2.6"/><circle cx="222" cy="330" r="2.6"/><circle cx="258" cy="292" r="2.6"/>
+    <circle cx="330" cy="322" r="2.6"/><circle cx="384" cy="440" r="2.6"/><circle cx="418" cy="450" r="2.6"/>
+    <circle cx="452" cy="452" r="2.6"/><circle cx="496" cy="440" r="2.6"/><circle cx="540" cy="398" r="2.6"/>
+  </g>
+  <!-- MPPI 均值跳跃箭头:从种子跨墙到好盆地 -->
+  <path d="M 100 332 C 200 240, 340 300, 414 440" fill="none" stroke="#e76125" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow-orange)"/>
+  <text x="392" y="267" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#e76125">MPPI:粒子跨墙采样,均值甩进好盆地(零阶,不怕不可微)</text>
+
+  <!-- L-BFGS 盆内下降 -->
+  <path d="M 420 444 C 428 452, 434 455, 442 456" fill="none" stroke="#e76125" stroke-width="2.4" marker-end="url(#arrow-orange)"/>
+  <circle cx="447" cy="456" r="4.5" fill="#e76125"/>
+  <text x="484" y="430" text-anchor="start" font-size="11.5" font-weight="bold" fill="#e76125">L-BFGS:盆内超线性收敛</text>
+  <text x="484" y="445" text-anchor="start" font-size="11" fill="#646d72">(two-loop 曲率 + Wolfe 线搜索)</text>
+  <text x="447" y="490" text-anchor="middle" font-size="11" fill="#333333">全局最优 ✓</text>
+
+  <!-- 右侧另一盆地提示:另一种子 -->
+  <circle cx="655" cy="284" r="4" fill="#b0b6b9"/>
+  <text x="640" y="270" text-anchor="middle" font-size="10.5" fill="#b0b6b9">其它种子探索其它拓扑</text>
+
+  <!-- 底部注释 -->
+  <text x="360" y="520" text-anchor="middle" font-size="12" fill="#333333">MPPI 只看代价值,能跨过不可微的碰撞高墙换盆地;L-BFGS 依赖梯度与曲率,在盆地内几十步冲底</text>
+  <text x="360" y="538" text-anchor="middle" font-size="12" fill="#646d72">N 个种子(不同 IK 解 = 不同绕行拓扑)整条管线并行跑,终点用 feasible ∧ converged 硬约束验收后按代价排序</text>
+</svg>
